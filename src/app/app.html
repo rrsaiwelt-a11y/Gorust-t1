@@ -1,0 +1,445 @@
+<div
+  class="min-h-screen transition-colors duration-200"
+  [class.bg-[#130E17]]="highContrastAAA()"
+  [class.text-white]="highContrastAAA()"
+  [class.bg-slate-950]="!highContrastAAA()"
+  [class.text-slate-100]="!highContrastAAA()"
+>
+  <!-- Top Bar Contract: 3 Zones separated by gap-8 -->
+  <header
+    class="sticky top-0 z-30 flex items-center justify-between gap-8 px-6 py-4 border-b backdrop-blur-md transition-colors"
+    [class.bg-[#130E17]/95]="highContrastAAA()"
+    [class.border-[#D8ED00]]="highContrastAAA()"
+    [class.bg-slate-950/90]="!highContrastAAA()"
+    [class.border-slate-800]="!highContrastAAA()"
+  >
+    <!-- Zone 1: Single text element wordmark -->
+    <a
+      href="#top"
+      (click)="setTab('all'); $event.preventDefault()"
+      class="text-lg font-bold tracking-tight whitespace-nowrap shrink-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-[#D8ED00] rounded"
+      [class.text-[#D8ED00]]="highContrastAAA()"
+      [class.text-white]="!highContrastAAA()"
+    >
+      SmartGrid &amp; LegalTech Lab
+    </a>
+
+    <!-- Zone 2: 5 concise single-line navigation links -->
+    <nav aria-label="Nawigacja glowna" class="hidden md:flex items-center gap-6 text-sm font-medium">
+      <a
+        href="#kompletny-widok"
+        (click)="setTab('all'); $event.preventDefault()"
+        class="transition-colors whitespace-nowrap shrink-0 py-1 border-b-2"
+        [class.border-[#D8ED00]]="activeTab() === 'all'"
+        [class.text-[#D8ED00]]="activeTab() === 'all'"
+        [class.border-transparent]="activeTab() !== 'all'"
+        [class.text-slate-300]="activeTab() !== 'all'"
+        [class.hover:text-white]="activeTab() !== 'all'"
+      >
+        Kompletny Widok
+      </a>
+      <a
+        href="#projekty-govtech"
+        (click)="setTab('projects'); $event.preventDefault()"
+        class="transition-colors whitespace-nowrap shrink-0 py-1 border-b-2"
+        [class.border-[#D8ED00]]="activeTab() === 'projects'"
+        [class.text-[#D8ED00]]="activeTab() === 'projects'"
+        [class.border-transparent]="activeTab() !== 'projects'"
+        [class.text-slate-300]="activeTab() !== 'projects'"
+        [class.hover:text-white]="activeTab() !== 'projects'"
+      >
+        Legal Tech &amp; GovTech
+      </a>
+      <a
+        href="#smart-grid-dci"
+        (click)="setTab('smartgrid'); $event.preventDefault()"
+        class="transition-colors whitespace-nowrap shrink-0 py-1 border-b-2"
+        [class.border-[#D8ED00]]="activeTab() === 'smartgrid'"
+        [class.text-[#D8ED00]]="activeTab() === 'smartgrid'"
+        [class.border-transparent]="activeTab() !== 'smartgrid'"
+        [class.text-slate-300]="activeTab() !== 'smartgrid'"
+        [class.hover:text-white]="activeTab() !== 'smartgrid'"
+      >
+        Smart Grid &amp; dCi
+      </a>
+      <a
+        href="#finanse-zgodnosc"
+        (click)="setTab('finance'); $event.preventDefault()"
+        class="transition-colors whitespace-nowrap shrink-0 py-1 border-b-2"
+        [class.border-[#D8ED00]]="activeTab() === 'finance' || activeTab() === 'hardware'"
+        [class.text-[#D8ED00]]="activeTab() === 'finance' || activeTab() === 'hardware'"
+        [class.border-transparent]="activeTab() !== 'finance' && activeTab() !== 'hardware'"
+        [class.text-slate-300]="activeTab() !== 'finance' && activeTab() !== 'hardware'"
+        [class.hover:text-white]="activeTab() !== 'finance' && activeTab() !== 'hardware'"
+      >
+        Finanse &amp; Biurko
+      </a>
+      <a
+        href="#sekcja-diagramy-roadmapa"
+        (click)="setTab('diagrams'); $event.preventDefault()"
+        class="transition-colors whitespace-nowrap shrink-0 py-1 border-b-2"
+        [class.border-[#D8ED00]]="activeTab() === 'diagrams'"
+        [class.text-[#D8ED00]]="activeTab() === 'diagrams'"
+        [class.border-transparent]="activeTab() !== 'diagrams'"
+        [class.text-slate-300]="activeTab() !== 'diagrams'"
+        [class.hover:text-white]="activeTab() !== 'diagrams'"
+      >
+        Diagramy &amp; Roadmapa
+      </a>
+    </nav>
+
+    <!-- Zone 3: 1 primary action -->
+    <div class="flex items-center gap-3 shrink-0">
+      <button
+        type="button"
+        (click)="openExportModal()"
+        class="inline-flex items-center gap-2 px-4 py-2 text-xs font-semibold rounded-lg transition-colors cursor-pointer whitespace-nowrap shrink-0 bg-[#D8ED00] text-[#130E17] hover:bg-[#e5f733]"
+      >
+        <mat-icon class="text-base leading-none">download</mat-icon>
+        <span>Eksportuj Dokumentacje</span>
+      </button>
+    </div>
+  </header>
+
+  <main id="top" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-10">
+    <!-- Hero & Academic / Corridor Identity Card -->
+    <section
+      aria-labelledby="hero-title"
+      class="rounded-2xl border p-6 sm:p-8 transition-colors"
+      [class.bg-[#130E17]]="highContrastAAA()"
+      [class.border-[#D8ED00]]="highContrastAAA()"
+      [class.bg-slate-900/90]="!highContrastAAA()"
+      [class.border-slate-800]="!highContrastAAA()"
+    >
+      <!-- Unboxed Metadata Line (Zero-Pill Discipline) -->
+      <div class="flex flex-wrap items-center gap-x-2.5 gap-y-1 text-xs font-mono text-slate-400">
+        <span>Inzynier Oprogramowania (11. semestr mgr uzupelniajacych, obrona marzec 2027)</span>
+        <span aria-hidden="true">·</span>
+        <span>Promotor: Prof. dr hab. inz. Cezary Orlowski</span>
+        <span aria-hidden="true">·</span>
+        <span>WCAG 2.1 AAA ({{ wcagReferenceRatio() }}:1)</span>
+      </div>
+
+      <h1
+        id="hero-title"
+        class="mt-3 text-2xl sm:text-4xl font-bold tracking-tight balance-text"
+        [class.text-[#D8ED00]]="highContrastAAA()"
+        [class.text-white]="!highContrastAAA()"
+      >
+        Kompletna Dokumentacja Architektoniczna i Finansowa (Od Profesora do Laika)
+      </h1>
+
+      <p class="mt-3 max-w-4xl text-sm sm:text-base leading-relaxed text-slate-300">
+        Zintegrowane srodowisko badawczo-wdrozeniowe laczace bezpieczenstwo prawne
+        <strong>RODO / NIS2 / EU AI Act</strong>, dostepnosc cyfrowa
+        <strong>WCAG 2.1 AAA / EAA</strong> (pilotaz "Dostepna Gmina"), walidacje telemetrii
+        <strong>Smart Grid AQI / dCi</strong> w korytarzu pomorskim oraz model przeplywow finansowych
+        <strong>60 / 30 / 10</strong>.
+      </p>
+
+      <!-- Corridor & Stack Metadata Strip -->
+      <div class="mt-6 pt-5 border-t border-slate-800 grid grid-cols-1 md:grid-cols-3 gap-4 text-xs">
+        <div>
+          <span class="font-mono text-slate-400 block">Korytarz Wdrozeniowy Pomorze</span>
+          <p class="mt-1 font-semibold text-slate-100">
+            Ustka (Port / Offshore Baltica 2 &amp; 3, 2.5 GW) — Slupsk (GPZ Wierzbiecino 400 kV) — Trojmiasto (Hotel Gdansk)
+          </p>
+        </div>
+        <div>
+          <span class="font-mono text-slate-400 block">Stos Technologiczny</span>
+          <p class="mt-1 font-mono text-slate-100">
+            Rust (Anonimizacja/Crypto) · Go (API) · Python (NLP Guardrails &amp; dCi/AQI) · TypeScript
+          </p>
+        </div>
+        <div>
+          <span class="font-mono text-slate-400 block">Parametry Krytyczne SLA &amp; B+R</span>
+          <p class="mt-1 font-mono tabular-nums text-[#D8ED00]">
+            DWDM 3.84 ms (&lt; 5 ms) · RTO &lt; 2h · PoC 11 000 PLN · Off-Grid 13.7h
+          </p>
+        </div>
+      </div>
+
+      <!-- Workspace Toolbar: Perspective Switcher ("Od Profesora do Laika") + WCAG AAA Contrast + Mobile Nav -->
+      <div class="mt-6 pt-5 border-t border-slate-800 flex flex-col xl:flex-row xl:items-center xl:justify-between gap-4">
+        <div class="flex flex-col sm:flex-row sm:items-center gap-3">
+          <span class="text-xs font-mono text-slate-400 shrink-0">Poziom narracji:</span>
+          <div
+            role="group"
+            aria-label="Wybierz poziom narracji od profesora do laika"
+            class="inline-flex flex-wrap sm:flex-nowrap items-center gap-1 p-1 rounded-lg bg-slate-950 border border-slate-800"
+          >
+            <button
+              type="button"
+              (click)="setAudience('professor')"
+              class="px-3 py-1.5 rounded-md text-xs font-semibold transition-colors cursor-pointer whitespace-nowrap shrink-0"
+              [class.bg-[#D8ED00]]="audience() === 'professor'"
+              [class.text-[#130E17]]="audience() === 'professor'"
+              [class.text-slate-300]="audience() !== 'professor'"
+              [class.hover:text-white]="audience() !== 'professor'"
+            >
+              Tryb Naukowy (Profesor)
+            </button>
+            <button
+              type="button"
+              (click)="setAudience('architect')"
+              class="px-3 py-1.5 rounded-md text-xs font-semibold transition-colors cursor-pointer whitespace-nowrap shrink-0"
+              [class.bg-[#D8ED00]]="audience() === 'architect'"
+              [class.text-[#130E17]]="audience() === 'architect'"
+              [class.text-slate-300]="audience() !== 'architect'"
+              [class.hover:text-white]="audience() !== 'architect'"
+            >
+              Tryb Inzynierski (Architekt)
+            </button>
+            <button
+              type="button"
+              (click)="setAudience('layperson')"
+              class="px-3 py-1.5 rounded-md text-xs font-semibold transition-colors cursor-pointer whitespace-nowrap shrink-0"
+              [class.bg-[#D8ED00]]="audience() === 'layperson'"
+              [class.text-[#130E17]]="audience() === 'layperson'"
+              [class.text-slate-300]="audience() !== 'layperson'"
+              [class.hover:text-white]="audience() !== 'layperson'"
+            >
+              Tryb Obywatelski (Laik)
+            </button>
+          </div>
+        </div>
+
+        <div class="flex flex-wrap sm:flex-nowrap items-center gap-2.5 shrink-0">
+          <button
+            type="button"
+            (click)="toggleHighContrast()"
+            class="inline-flex items-center gap-2 px-3.5 py-2 rounded-lg text-xs font-semibold border transition-colors cursor-pointer whitespace-nowrap shrink-0"
+            [class.bg-[#D8ED00]]="highContrastAAA()"
+            [class.text-[#130E17]]="highContrastAAA()"
+            [class.border-[#D8ED00]]="highContrastAAA()"
+            [class.bg-slate-950]="!highContrastAAA()"
+            [class.text-[#D8ED00]]="!highContrastAAA()"
+            [class.border-slate-700]="!highContrastAAA()"
+          >
+            <mat-icon class="text-base leading-none">contrast</mat-icon>
+            <span>
+              {{ highContrastAAA() ? 'Kontrast WCAG AAA Aktywny (#130E17 / #D8ED00)' : 'Wlacz Kontrast WCAG AAA (#130E17 / #D8ED00)' }}
+            </span>
+          </button>
+
+          <button
+            type="button"
+            (click)="handleSpeak('Kompletna dokumentacja architektoniczna i finansowa od profesora do laika. Promotor naukowy profesor Cezary Orlowski. Korytarz wdrozeniowy Ustka, Slupsk, Trojmiasto.')"
+            class="inline-flex items-center gap-2 px-3.5 py-2 rounded-lg text-xs font-semibold bg-slate-800 text-slate-100 border border-slate-700 hover:bg-slate-700 transition-colors cursor-pointer whitespace-nowrap shrink-0"
+          >
+            <mat-icon class="text-base leading-none">record_voice_over</mat-icon>
+            <span>Synteza Mowy TTS</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Mobile Section Filter Buttons -->
+      <div class="mt-4 flex md:hidden flex-wrap gap-2 pt-3 border-t border-slate-800">
+        <button
+          type="button"
+          (click)="setTab('all')"
+          class="px-2.5 py-1 rounded text-xs font-medium cursor-pointer whitespace-nowrap shrink-0"
+          [class.bg-[#D8ED00]]="activeTab() === 'all'"
+          [class.text-[#130E17]]="activeTab() === 'all'"
+          [class.bg-slate-800]="activeTab() !== 'all'"
+        >
+          Wszystkie
+        </button>
+        <button
+          type="button"
+          (click)="setTab('projects')"
+          class="px-2.5 py-1 rounded text-xs font-medium cursor-pointer whitespace-nowrap shrink-0"
+          [class.bg-[#D8ED00]]="activeTab() === 'projects'"
+          [class.text-[#130E17]]="activeTab() === 'projects'"
+          [class.bg-slate-800]="activeTab() !== 'projects'"
+        >
+          Legal &amp; GovTech
+        </button>
+        <button
+          type="button"
+          (click)="setTab('smartgrid')"
+          class="px-2.5 py-1 rounded text-xs font-medium cursor-pointer whitespace-nowrap shrink-0"
+          [class.bg-[#D8ED00]]="activeTab() === 'smartgrid'"
+          [class.text-[#130E17]]="activeTab() === 'smartgrid'"
+          [class.bg-slate-800]="activeTab() !== 'smartgrid'"
+        >
+          Smart Grid
+        </button>
+        <button
+          type="button"
+          (click)="setTab('hardware')"
+          class="px-2.5 py-1 rounded text-xs font-medium cursor-pointer whitespace-nowrap shrink-0"
+          [class.bg-[#D8ED00]]="activeTab() === 'hardware'"
+          [class.text-[#130E17]]="activeTab() === 'hardware'"
+          [class.bg-slate-800]="activeTab() !== 'hardware'"
+        >
+          Biurko Off-Grid
+        </button>
+        <button
+          type="button"
+          (click)="setTab('finance')"
+          class="px-2.5 py-1 rounded text-xs font-medium cursor-pointer whitespace-nowrap shrink-0"
+          [class.bg-[#D8ED00]]="activeTab() === 'finance'"
+          [class.text-[#130E17]]="activeTab() === 'finance'"
+          [class.bg-slate-800]="activeTab() !== 'finance'"
+        >
+          Finanse &amp; AAA
+        </button>
+        <button
+          type="button"
+          (click)="setTab('diagrams')"
+          class="px-2.5 py-1 rounded text-xs font-medium cursor-pointer whitespace-nowrap shrink-0"
+          [class.bg-[#D8ED00]]="activeTab() === 'diagrams'"
+          [class.text-[#130E17]]="activeTab() === 'diagrams'"
+          [class.bg-slate-800]="activeTab() !== 'diagrams'"
+        >
+          Diagramy &amp; Roadmapa
+        </button>
+      </div>
+
+      <!-- Active Speech Synthesis Transcript Banner -->
+      @if (lastSpokenText()) {
+        <div
+          role="status"
+          aria-live="polite"
+          class="mt-4 rounded-lg border border-[#D8ED00] bg-[#130E17] p-3.5 flex items-center justify-between gap-4"
+        >
+          <div class="flex items-center gap-3 text-xs text-[#D8ED00] font-mono">
+            <mat-icon class="text-base leading-none shrink-0">graphic_eq</mat-icon>
+            <span><strong>Czytnik TTS (pl-PL):</strong> {{ lastSpokenText() }}</span>
+          </div>
+          <button
+            type="button"
+            (click)="stopSpeaking()"
+            class="px-2.5 py-1 rounded text-xs font-semibold bg-[#D8ED00] text-[#130E17] cursor-pointer whitespace-nowrap shrink-0"
+          >
+            Zatrzymaj TTS
+          </button>
+        </div>
+      }
+    </section>
+
+    <!-- Domain Sections -->
+    @if (activeTab() === 'all' || activeTab() === 'diagrams' || activeTab() === 'projects' || activeTab() === 'smartgrid') {
+      <div id="nextgen-trzy-drogi">
+        <app-nextgen-three-pillars-panel
+          [audience]="audience()"
+          [highContrast]="highContrastAAA()"
+          (speakText)="handleSpeak($event)"
+        />
+      </div>
+    }
+
+    @if (activeTab() === 'all' || activeTab() === 'projects') {
+      <div id="projekty-govtech">
+        <app-projects-compliance-panel
+          [audience]="audience()"
+          [highContrast]="highContrastAAA()"
+          (speakText)="handleSpeak($event)"
+        />
+      </div>
+    }
+
+    @if (activeTab() === 'all' || activeTab() === 'smartgrid') {
+      <div id="smart-grid-dci">
+        <app-smart-grid-telemetry-panel
+          [audience]="audience()"
+          [highContrast]="highContrastAAA()"
+          (speakText)="handleSpeak($event)"
+        />
+      </div>
+    }
+
+    @if (activeTab() === 'all' || activeTab() === 'hardware' || activeTab() === 'finance') {
+      <div id="biurko-offgrid">
+        <app-anti-gravity-desk-panel
+          [audience]="audience()"
+          [highContrast]="highContrastAAA()"
+          (speakText)="handleSpeak($event)"
+        />
+      </div>
+    }
+
+    @if (activeTab() === 'all' || activeTab() === 'finance') {
+      <div id="finanse-zgodnosc" class="space-y-10">
+        <app-financial-architecture-panel
+          [audience]="audience()"
+          [highContrast]="highContrastAAA()"
+          (speakText)="handleSpeak($event)"
+        />
+        <app-master-compliance-panel
+          [audience]="audience()"
+          [highContrast]="highContrastAAA()"
+          (speakText)="handleSpeak($event)"
+        />
+      </div>
+    }
+
+    @if (activeTab() === 'all' || activeTab() === 'diagrams') {
+      <div id="diagramy-i-roadmapa">
+        <app-diagrams-roadmap-panel
+          [audience]="audience()"
+          [highContrast]="highContrastAAA()"
+          (speakText)="handleSpeak($event)"
+        />
+      </div>
+    }
+  </main>
+
+  <!-- Clean Minimal Footer -->
+  <footer class="border-t border-slate-800/80 py-6 px-6 text-center text-xs text-slate-400 font-mono">
+    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2">
+      <span>Systems &amp; Security Architecture · Smart Grid Lab &amp; Legal Tech · Obrona mgr: Marzec 2027</span>
+      <span>Korytarz: Ustka (Offshore 2.5 GW) — Slupsk (GPZ 400 kV) — Trojmiasto · Zero-Tracking / Zero-Cookies</span>
+    </div>
+  </footer>
+
+  <!-- Export Documentation Modal -->
+  @if (exportModalOpen()) {
+    <div
+      class="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-4"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="export-modal-title"
+    >
+      <div class="w-full max-w-2xl rounded-xl border border-slate-700 bg-slate-900 p-6 shadow-xl">
+        <div class="flex items-center justify-between pb-4 border-b border-slate-800">
+          <h2 id="export-modal-title" class="text-lg font-bold text-white">
+            Eksport Specyfikacji Architektonicznej i Finansowej (JSON)
+          </h2>
+          <button
+            type="button"
+            (click)="closeExportModal()"
+            class="p-1 rounded text-slate-400 hover:text-white cursor-pointer"
+            aria-label="Zamknij okno eksportu"
+          >
+            <mat-icon>close</mat-icon>
+          </button>
+        </div>
+
+        <pre class="mt-4 max-h-96 overflow-auto rounded-lg bg-slate-950 border border-slate-800 p-4 text-xs font-mono text-slate-200">{{ exportManifestJson() }}</pre>
+
+        <div class="mt-5 flex items-center justify-end gap-3">
+          @if (copiedConfirmation()) {
+            <span class="text-xs font-mono text-emerald-400">Skopiowano do schowka!</span>
+          }
+          <button
+            type="button"
+            (click)="copyManifestToClipboard()"
+            class="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg text-xs font-semibold bg-[#D8ED00] text-[#130E17] hover:bg-[#e5f733] cursor-pointer whitespace-nowrap shrink-0"
+          >
+            <mat-icon class="text-base leading-none">content_copy</mat-icon>
+            <span>Kopiuj JSON do schowka</span>
+          </button>
+          <button
+            type="button"
+            (click)="closeExportModal()"
+            class="px-4 py-2 rounded-lg text-xs font-medium bg-slate-800 text-slate-200 hover:bg-slate-700 cursor-pointer whitespace-nowrap shrink-0"
+          >
+            Zamknij
+          </button>
+        </div>
+      </div>
+    </div>
+  }
+</div>

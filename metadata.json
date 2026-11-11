@@ -1,0 +1,6 @@
+{
+  "name": "Architektura Systemowa i Finansowa Smart Grid & Legal Tech",
+  "description": "Kompletna dokumentacja architektoniczna, symulator telemetrii Smart Grid AQI/dCi, kalkulator finansowy 60/30/10 i matryca zgodnosci WCAG 2.1 AAA, RODO, NIS2 oraz EU AI Act.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

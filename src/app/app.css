@@ -1,0 +1,4 @@
+/* Root component scoped utilities */
+:host {
+  display: block;
+}
